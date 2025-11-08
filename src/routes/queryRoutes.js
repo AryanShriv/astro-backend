@@ -11,7 +11,7 @@ router.get("/test", (req, res) => {
   res.send("API test route is working!");
 });
 
-router.post("/", submitQuery);
+router.post("/queries", submitQuery);
 
 router.get("/queries/:type", getQueriesByServiceType);
 
