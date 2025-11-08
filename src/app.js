@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 const queryRoutes = require("./routes/queryRoutes");
-app.use("/api", require("./routes/queryRoutes"));
+app.use("/api", queryRoutes);
 
 app.get("/", (req, res) => {
   res.send("Astro backend is live!");
