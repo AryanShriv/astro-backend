@@ -12,6 +12,7 @@ app.use(express.json());
 
 const queryRoutes = require("./routes/queryRoutes");
 app.use("/api", queryRoutes);
+console.log("✅ Mounted /api routes");
 
 app.get("/", (req, res) => {
   res.send("Astro backend is live!");

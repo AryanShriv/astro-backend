@@ -5,6 +5,12 @@ const {
   getQueriesByServiceType,
 } = require("../controllers/queryController");
 
+console.log("✅ queryRoutes loaded");
+
+router.get("/test", (req, res) => {
+  res.send("API test route is working!");
+});
+
 router.post("/", submitQuery);
 
 router.get("/queries/:type", getQueriesByServiceType);
