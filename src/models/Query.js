@@ -1,20 +1,35 @@
 const mongoose = require("mongoose");
 
+const personSchema = new mongoose.Schema({
+  name: String,
+  birthDate: Date,
+  birthTime: String,
+  birthPlace: String,
+});
+
 const querySchema = new mongoose.Schema(
   {
-    name: { type: String, required: true }, // contact person
-    email: { type: String, required: true },
-    birthDate: { type: Date }, // person1
-    birthTime: { type: String },
-    birthPlace: { type: String },
-    question: { type: String },
-    serviceType: { type: String, enum: ["kundali", "milan", "sawal"] },
+    // For Kundali and Sawal
+    person1: personSchema,
 
-    person2: {
-      name: { type: String },
-      birthDate: { type: Date },
-      birthTime: { type: String },
-      birthPlace: { type: String },
+    // For Milan
+    person2: personSchema,
+
+    // Optional for Sawal
+    question: String,
+
+    // Contact Info (always present)
+    contact: {
+      name: { type: String, required: true },
+      phone: String,
+      email: { type: String, required: true },
+    },
+
+    // Service Type
+    serviceType: {
+      type: String,
+      enum: ["kundali", "milan", "sawal"],
+      required: true,
     },
   },
   { timestamps: true }
